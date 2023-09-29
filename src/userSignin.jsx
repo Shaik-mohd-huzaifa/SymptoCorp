@@ -7,19 +7,18 @@ const SignUp = () => {
     const SignUpForm = async () => {
       const {data, error} = await supabase.auth.signUp({
         email: userEmail,
-        password: userPassword,   
-        disable_email_confirmations: false,      
+        password: userPassword,      
       })  
       console.log(data || error)
     } 
 
-    const SignIn = async () => {
-        const {data, error} = await supabase.auth.signInWithPassword({
-            email: userEmail,
-            password: userPassword
-        });
-        console.log(data || error);
-    }
+    // const SignIn = async () => {
+    //     const {data, error} = await supabase.auth.signInWithPassword({
+    //         email: userEmail,
+    //         password: userPassword
+    //     });
+    //     console.log(data || error);
+    // }
 
     return (
         <div className="">
