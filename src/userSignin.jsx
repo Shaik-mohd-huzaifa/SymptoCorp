@@ -8,7 +8,7 @@ const SignUp = () => {
       const {data, error} = await supabase.auth.signUp({
         email: userEmail,
         password: userPassword,   
-        disable_email_confirmations: true,      
+        disable_email_confirmations: false,      
       })  
       console.log(data || error)
     } 
