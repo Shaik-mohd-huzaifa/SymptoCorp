@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import supabase from "./APIs/supabase";
 
 const SignUp = () => {
@@ -46,9 +46,13 @@ const SignUp = () => {
         if(error){
             console.log(error)
         }
-        setGoogleSession(data);
-        console.log(googleSession);
+        const {data: {session},} = await supabase.auth.getSession() 
+        setGoogleSession(session)        
     }
+
+    useEffect(() => {
+        console.log(googleSession)
+    }, [googleSession])
 
     return (
         <>
