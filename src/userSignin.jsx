@@ -4,6 +4,7 @@ import supabase from "./APIs/supabase";
 const SignUp = () => {
     const [userEmail, setEmail] = useState("");
     const [userPassword, setPassword] = useState("")
+    const [googleSession, setGoogleSession] = useState({})
     const SignUpForm = async () => {
             const {data, error} = await supabase.auth.signUp({
               email: userEmail,
@@ -45,7 +46,8 @@ const SignUp = () => {
         if(error){
             console.log(error)
         }
-        console.log(data)
+        setGoogleSession(data);
+        console.log(googleSession);
     }
 
     return (
