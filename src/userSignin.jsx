@@ -25,7 +25,7 @@ const SignUp = () => {
             <input type="text" name="email" value={userEmail} onChange={(e) => setEmail(e.target.value)}/>
             <input type="password" name="password" value={userPassword} onChange={(e) => setPassword(e.target.value)}/>
 
-            <button onClick={() => SignIn()}>Submit</button>
+            <button onClick={() => SignUpForm()}>Submit</button>
         </div>
     )
 }
