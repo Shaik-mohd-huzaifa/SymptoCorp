@@ -9,15 +9,23 @@ const SignUp = () => {
         email: userEmail,
         password: userPassword,        
       })  
-      console.log(data || error)
+      console.log(error)
     } 
+
+    const SignIn = async () => {
+        const {data, error} = await supabase.auth.signInWithPassword({
+            email: userEmail,
+            password: userPassword
+        });
+        console.log(data || error);
+    }
 
     return (
         <div className="">
             <input type="text" name="email" value={userEmail} onChange={(e) => setEmail(e.target.value)}/>
             <input type="password" name="password" value={userPassword} onChange={(e) => setPassword(e.target.value)}/>
 
-            <button onClick={() => SignUpForm()}>Submit</button>
+            <button onClick={() => SignIn()}>Submit</button>
         </div>
     )
 }
