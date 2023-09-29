@@ -33,7 +33,14 @@ const SignUp = () => {
 
     const SigninWithGoogle = async() => {
         const {data, error} = await supabase.auth.signInWithOAuth({
-            provider: 'google'
+            provider: 'google',
+            options: {
+                scopes: 'https://www.googleapis.com/auth/userinfo.email',
+                queryParams: {
+                  access_type: 'offline',
+                  prompt: 'consent',
+                },
+              },
         })
         if(error){
             console.log(error)
